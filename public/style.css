@@ -1,0 +1,35 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
+.h-custom {
+height: calc(100% - 73px);
+}
+.form-control{
+    width:300px !important;
+}
+label{
+  display:none !important;
+}
+label.error{
+  display:block !important;
+    color: red;
+}
+.sign-up-link{
+  text-decoration:none;
+}
+
+
+@media (max-width: 450px) {
+.h-custom {
+height: 100%;
+}
+}
