@@ -14,7 +14,7 @@ app.use(session({
     secret: 'session key',
     resave: false,
     saveUninitialized: false,
-    cookie: {maxAge:1000000}
+    cookie: {maxAge:1000*60*60}
   }))
   app.use(express.static(path.join(__dirname, 'public')));
 // view engine setup 
@@ -24,9 +24,9 @@ app.engine('hbs', hbs.engine({
     layoutsDir: __dirname + '/views/layouts',
     extname: 'hbs',
     defaultLayout: 'layout',
+    partialsDir:__dirname+'/views/partials/'
     }));
+
 app.use('/', require('./routes/common'));
-app.use((req, res) => {
-  res.status(404).render('body/404')
-})
+app.use('/admin', require('./routes/admin'));
 app.listen(PORT,()=>console.log("create server on port",PORT))

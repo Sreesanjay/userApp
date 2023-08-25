@@ -1,0 +1,27 @@
+{{#if alert}}
+{{#if alert.type}}
+<div class="alert alert-success" role="alert">
+  {{alert.message}}
+</div>
+{{else}}
+<div class="alert alert-danger" role="alert">
+  {{alert.message}}
+</div>
+{{/if}}
+{{/if}}
+<section class="new-blog d-flex flex-column align-items-center ">
+    <h2 class="mt-5">New Blog</h2>
+    <div class="mb-5">
+    <form action="/new-blog" method="post">
+        <div class="form-outline mt-4 d-flex flex-column">
+           <input type="text" class="" style="width:600px; height:40px; " id="title" name="title">
+            <label class="form-label" for="title">Blog Title</label>
+        </div>
+         <div class="form-outline mt-4 d-flex flex-column">
+           <textarea type="text" class="" style="width:600px;" id="title" name="body" rows="10"></textarea>
+            <label class="form-label" for="title">Body</label>
+        </div>
+        <div class="btn-container"><button type="reset" class="btn btn-danger">Clear</button><button type="submit" class="btn btn-primary ms-3">Upload</button></div>
+    </form>
+    </div>
+</section>

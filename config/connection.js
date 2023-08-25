@@ -13,8 +13,9 @@ module.exports.connect=async() =>{
     } catch (error) {
         console.error('Error connecting to MongoDB:', error);
     }
-    module.exports.get=()=>{
-        return state.db;
-    }
+  
+}
+module.exports.get=()=>{
+    return state.db;
 }
 

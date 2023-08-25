@@ -1,0 +1,25 @@
+{{#if alert}}
+{{#if alert.type}}
+<div class="alert alert-success" role="alert">
+  {{alert.message}}
+</div>
+{{else}}
+<div class="alert alert-danger" role="alert">
+  {{alert.message}}
+</div>
+{{/if}}
+{{/if}}
+<nav class="navbar navbar-light bg-light px-5">
+<div class="left">
+       <h4>Admin Panel</h4>
+</div>
+{{!-- <div class="center">
+    <a class="navbar-brand" href="/logout">Logout</a>
+  
+</div> --}}
+<div class="right">
+    <a class="navbar-brand" href="#">{{user.userName}}</a>
+    <p>{{user.email}}</p>
+   
+</div>
+</nav>

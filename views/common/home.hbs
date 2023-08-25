@@ -1,21 +1,27 @@
+{{#if alert}}
+{{#if alert.type}}
+<div class="alert alert-success" role="alert">
+  {{alert.message}}
+</div>
+{{else}}
+<div class="alert alert-danger" role="alert">
+  {{alert.message}}
+</div>
+{{/if}}
+{{/if}}
 <!-- As a link -->
-<nav class="navbar navbar-light bg-light px-5">
-<div class="left">
-    <a class="navbar-brand" href="#">{{user.name}}</a>
-    <p>{{user.email}}</p>
-</div>
-<div class="right">
-    <a class="navbar-brand" href="/logout">Logout</a>
-</div>
-</nav>
+
 <section class="blogs">
-  <h2 align="center" class="my-5">Your Blogs</h2>
-  <div class="blog-container row px-2">
-    {{#each user.blogs}}
-     <div class="col-md-3 col-12">
+  <div class="header d-flex flex-column align-items-center">
+    <h2 class="my-5">Your Blogs</h2>
+  </div>
+  <div class="blog-container px-2">
+    {{#each blogs}}
+     <div class=" blog-wrapper p-3 mt-3 bg-light">
       <div class="card-body px-2">
-        <h4>{{this.title}}</h4>
-        <p>{{this.body}}</p>
+        <h4 align="center" >{{this.title}}</h4>
+        <h6 align="center" >{{user.userName}}</h6>
+        <p align="center" >{{this.body}}</p>
       </div>
      </div>
     {{/each}}
