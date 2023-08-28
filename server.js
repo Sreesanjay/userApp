@@ -16,7 +16,7 @@ app.use(session({
     saveUninitialized: false,
     cookie: {maxAge:1000*60*60}
   }))
-  app.use(express.static(path.join(__dirname, 'public')));
+  app.use(express.static(__dirname + '/public'));
 // view engine setup 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');

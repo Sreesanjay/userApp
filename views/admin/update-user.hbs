@@ -1,28 +1,39 @@
-{{!-- <div class="container mt-5 mb-5 d-flex justify-content-center">
+<h2 align="center" class="mt-5 text-secondary">Update User Data</h2>
+<div class="container mt-5 mb-5 d-flex justify-content-center">
     <div class="card px-1 py-4">
         <div class="card-body">
+            <form action="/admin/update_user_data" method="post">
             <div class="row">
                 <div class="col-sm-12">
                     <div class="form-group">
-                        <!-- <label for="name">Name</label> --> <input class="form-control" type="text" placeholder="Name"> </div>
+                        <label for="name">User Name</label>  <input class="form-control mb-3 " type="text" name="userName" value="{{userData.userName}}"> </div> 
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-12">
                     <div class="form-group">
-                        <div class="input-group"> <input class="form-control" type="text" placeholder="Mobile"> </div>
+                        <label for="name">Email</label>  <input class="form-control mb-3" name="email" type="text"  value="{{userData.email}}">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mb-3">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="name">Password</label>  <input class="form-control" name="password" type="password"> 
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-12">
                     <div class="form-group">
-                        <div class="input-group"> <input class="form-control" type="text" placeholder="Email ID"> </div>
+                    <input class="mb-3" name="_id" type="text"  value="{{userData._id}}" style="width: 0; height:0; border:none;">
                     </div>
                 </div>
             </div>
-            <div class=" d-flex flex-column text-center px-5 mt-3 mb-3"> <small class="agree-text">By Booking this appointment you agree to the</small> <a href="#" class="terms">Terms & Conditions</a> </div> <button class="btn btn-primary btn-block confirm-button">Confirm</button>
+            <button type="reset" class="btn btn-danger">Clear</button>
+            <button type="submit" class="btn btn-primary">Update</button>
+            </form>
         </div>
     </div>
-</div> --}}
-<h1>hai</h1>
+</div>

@@ -5,7 +5,7 @@ module.exports={
     //code for creating a new user
     createUser:(user)=>{
         return new Promise(async(resolve, reject)=>{
-            let data = await db.get().collection('users').findOne({$or: [{userName:{$eq: user.UserName}},{email:{$eq:user.email}}]})
+            let data = await db.get().collection('users').findOne({email:user.email})
             if(data===null){
             user.createdOn = new Date();
             user.password=await bcrypt.hash(user.password,10);

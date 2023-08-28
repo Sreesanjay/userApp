@@ -1,11 +1,26 @@
-<nav class="navbar navbar-light bg-light px-5">
+
+<nav class="navbar navbar-light bg-warning px-5">
 <div class="left">
     <a class="navbar-brand" href="#">{{user.userName}}</a>
     <p>{{user.email}}</p>
 </div>
 <div class="right">
+  {{#if user}}
   <a href="/" class="navbar-brand">Home</a>
     <a href="/newBlog" class="navbar-brand">New Blog</a>
     <a class="navbar-brand" href="/logout">Logout</a>
+    {{/if}}
 </div>
 </nav>
+
+{{#if alert}}
+{{#if alert.type}}
+<div class="alert" style="background-color:#08fda3c6;" role="alert">
+  {{alert.message}}
+</div>
+{{else}}
+<div class="alert alert-danger" role="alert">
+  {{alert.message}}
+</div>
+{{/if}}
+{{/if}}

@@ -1,29 +1,30 @@
-{{#if alert}}
-{{#if alert.type}}
-<div class="alert alert-success" role="alert">
-  {{alert.message}}
-</div>
-{{else}}
-<div class="alert alert-danger" role="alert">
-  {{alert.message}}
-</div>
-{{/if}}
-{{/if}}
-<!-- As a link -->
 
-<section class="blogs">
-  <div class="header d-flex flex-column align-items-center">
-    <h2 class="my-5">Your Blogs</h2>
-  </div>
-  <div class="blog-container px-2">
-    {{#each blogs}}
-     <div class=" blog-wrapper p-3 mt-3 bg-light">
-      <div class="card-body px-2">
-        <h4 align="center" >{{this.title}}</h4>
-        <h6 align="center" >{{user.userName}}</h6>
-        <p align="center" >{{this.body}}</p>
-      </div>
-     </div>
-    {{/each}}
+<!-- As a link -->
+<style>
+
+  
+</style>
+
+<section class="title container">
+  <div class="row">
+    <div class="col-md-12 d-flex flex-column align-items-center">
+      <h1>Your Blogs</h1>
+      <div class="seperator"></div>
+    </div>
   </div>
 </section>
+
+<div class="container">
+  <div class="row">
+    {{#each blogs}}
+    <div class="col-md-6 item mb-3">
+      <div class="item-in">
+        <h4>{{this.title}}</h4>
+        <div class="seperator"></div>
+        <p>{{this.body}}</p>
+        </a>
+      </div>
+    </div>
+   {{/each}}
+  </div>
+</div>

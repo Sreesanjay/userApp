@@ -1,27 +1,20 @@
-{{#if alert}}
-{{#if alert.type}}
-<div class="alert alert-success" role="alert">
-  {{alert.message}}
-</div>
-{{else}}
-<div class="alert alert-danger" role="alert">
-  {{alert.message}}
-</div>
-{{/if}}
-{{/if}}
-<section class="new-blog d-flex flex-column align-items-center ">
+
+<div class="p-2 pe-5 d-flex justify-content-between bg-white">
+<img src="https://img.freepik.com/premium-vector/illustration-vector-graphic-cartoon-character-blogging_516790-1495.jpg" alt="">
+<section class="new-blog d-flex flex-column align-items-center p-3">
     <h2 class="mt-5">New Blog</h2>
-    <div class="mb-5">
+    <div class="mb-5 p-2">
     <form action="/new-blog" method="post">
         <div class="form-outline mt-4 d-flex flex-column">
-           <input type="text" class="" style="width:600px; height:40px; " id="title" name="title">
-            <label class="form-label" for="title">Blog Title</label>
+           <input type="text" class="form-control" style="width:600px !important;" id="title" name="title">
+            <label class="form-label" for="title"> Title</label>
         </div>
          <div class="form-outline mt-4 d-flex flex-column">
-           <textarea type="text" class="" style="width:600px;" id="title" name="body" rows="10"></textarea>
-            <label class="form-label" for="title">Body</label>
+           <textarea type="text" class="form-control" style="width:600px !important;"  id="title" name="body" rows="10"></textarea>
+            <label class="form-label" for="title">Article</label>
         </div>
-        <div class="btn-container"><button type="reset" class="btn btn-danger">Clear</button><button type="submit" class="btn btn-primary ms-3">Upload</button></div>
+        <div class="btn-container d-flex flex-row justify-content-end"><button type="reset" class="btn btn-outline-danger">Clear</button><button type="submit" class="btn btn-outline-primary ms-3">Upload</button></div>
     </form>
     </div>
 </section>
+</div>

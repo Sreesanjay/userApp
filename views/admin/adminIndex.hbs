@@ -1,4 +1,27 @@
+<style>
+ .search-box form{
+  border: 1px solid gray;
+  border-radius:10px;
+ } 
+.search-box input{
+  border: none;
+   border-radius:15px;
+}
+.search-box input:focus {
+    outline: none;
+  }
+</style>
+<h2 align="center" class="my-3">User Details</h2>
 <div class="container mt-3">
+  <div class="header py-3 d-flex justify-content-between">
+  <a href="/admin/new-user" class="btn btn-outline-primary ">New User</a>
+  <div class="search-box">
+    <form action="/admin/search-user" method="get" class="d-flex p-0">
+      <input type="text" class="ps-2" name="userName" placeholder="Search user name">
+      <button type="submit" class="btn btn-outline-primary">Search</button>
+    </form>
+  </div>
+</div>
 <div class="row">
     <div class="col-md-12">
         <div class="card">
@@ -30,7 +53,7 @@
                       </td>
                       <td>
                         <a onclick="return confirm('Are you sure,You want to delete {{this.userName}}')" href="/admin/deleteUser/{{this._id}}" class="btn btn-outline-danger py-0" style="height: 30px;">Delete </a>
-                        <a href="/admin/updateUser/{{this._id}}" class="btn btn-outline-info ml-2 py-0" style="height: 30px;">Update </a>
+                        <a href="/admin/update-user/{{this._id}}" class="btn btn-outline-info ml-2 py-0" style="height: 30px;">Update </a>
                       </td>
                     </tr>
                     {{/each}}

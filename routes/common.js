@@ -100,4 +100,5 @@ router.post('/new-blog',verifyLogin,(req, res)=>{
         res.redirect('/new-blog')
     })
 })
+
 module.exports=router;
