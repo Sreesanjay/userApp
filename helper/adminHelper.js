@@ -3,22 +3,48 @@ const bcrypt=require('bcrypt');
 const ObjectId  = require('mongodb').ObjectId;
 module.exports={
   //login
-  doLogin:(data) => {
-    return new Promise(async(resolve, reject) => {         
-        let user = await db.get().collection('admin').findOne({email:data.email})
-        if(user){
-           if(user.password==data.password){
-            delete user.password
-            resolve(user)
-           }
-           else{
-            reject("Password not matched!")
-           }
-    }
+    //login
+    doLogin:(data) => {
+        return new Promise(async(resolve, reject) => {         
+            let user = await db.get().collection('admin').findOne({email:data.email})
+            if(user){
+               await bcrypt.compare(data.password,user.password).then((cmp) => {
+               if(cmp){
+                delete user.password
+                resolve(user)
+               }
+               else{
+                reject("Password not matched!")
+               }
+            })
+        }
+            else{
+                reject("user not found!")
+            }
+        })
+    },
+checkAdmin:()=>{
+    return new Promise(async(resolve, reject) =>{
+       let admin=await db.get().collection('admin').findOne()
+       console.log(admin)
+        if(admin){
+            console.log("Admin found")
+            resolve()
+        }
         else{
-            reject("user not found!")
+            console.log("admin not found")
+            reject("admin not found!")
         }
     })
+},
+createAdmin:(user)=>{
+    return new Promise(async(resolve, reject)=>{
+        user.createdOn = new Date();
+        user.password=await bcrypt.hash(user.password,10);
+        await db.get().collection('admin').insertOne(user)
+        resolve()
+    })
+    
 },
 getAllUsers:()=>{
     return new Promise(async(resolve, reject)=>{

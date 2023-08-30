@@ -56,7 +56,7 @@ router.post('/login-form',(req, res) => {
 router.get('/logout',verifyLogin,(req,res)=>{
 
     console.log("log out")
-    req.session.destroy();
+    delete req.session.user;
     res.redirect('/login')
 })
 

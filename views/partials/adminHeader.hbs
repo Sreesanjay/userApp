@@ -13,13 +13,12 @@
 <div class="left">
        <h4>Admin Panel</h4>
 </div>
-{{!-- <div class="center">
-    <a class="navbar-brand" href="/logout">Logout</a>
-  
-</div> --}}
-<div class="right">
+
+<div class="right d-flex">
+    <a class="navbar-brand btn" href="/admin/logout">Logout</a>
+    <div class="admin-details">
     <a class="navbar-brand" href="#">{{user.userName}}</a>
     <p>{{user.email}}</p>
-   
+   </div>
 </div>
 </nav>

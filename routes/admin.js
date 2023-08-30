@@ -25,11 +25,16 @@ const verifyLogin=(req,res,next) => {
   })
 router.get('/login',noCache,(req,res) =>{
     if(req.session.admin?.logedIn){
-        res.redirect('/admin/login')
+        res.redirect('/admin')
     }
     else{
-    res.render('admin/adminLogin',{admin:true,err:req.session.err})
-    delete req.session.err
+    adminHelper.checkAdmin().then(()=>{
+        res.render('admin/adminLogin',{admin:true,err:req.session.err})
+        delete req.session.err
+    }).catch((err)=>{
+        res.render('admin/admin-signUp',{admin:true,err:req.session.err,alert:{message:err,type:false}})
+    })
+    
     }
 })
   router.post('/admin-login',(req,res) =>{
@@ -50,6 +55,21 @@ router.get('/login',noCache,(req,res) =>{
         res.redirect('/admin/login')
     })
   })
+  router.post('/sign-up-form',(req,res)=>{
+    adminHelper.createAdmin(req.body).then((user)=>{
+     req.session.alert={
+         message:"user created succesfully",
+         type:true
+     }
+      res.redirect('/admin/login')
+    })
+ })
+ router.get('/logout',verifyLogin,(req,res)=>{
+
+    console.log("log out")
+   delete req.session.admin;
+    res.redirect('/admin/login')
+})
   router.get('/deleteUser/:id',verifyLogin,(req,res)=>{
     adminHelper.deleteUser(req.params.id).then(()=>{
         req.session.alert={
